@@ -3437,7 +3437,7 @@ a.term__v:hover {
   }
   .matrix__row {
     grid-template-columns: 128px repeat(var(--cols), minmax(52px, 1fr)) 72px;
-    min-width: 520px;
+    min-width: 580px;
   }
   .matrix__corner,
   .matrix__tool {

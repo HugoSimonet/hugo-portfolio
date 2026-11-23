@@ -162,7 +162,10 @@ export default function Toolkit() {
               <p className="matrix__idle">
                 <b className="on-hover">Hover a dot</b>
                 <b className="on-touch">Tap a dot</b>
-                <span className="matrix__use">to see where and how I used that tool.</span>
+                <span className="matrix__use">
+                  to see where and how I used that tool.
+                  <span className="on-touch"> Swipe the table sideways for more columns.</span>
+                </span>
               </p>
             )}
           </div>

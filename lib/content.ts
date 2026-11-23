@@ -358,6 +358,7 @@ export const toolkitCols = [
   { id: "dataco", short: "DataCo", full: "DataCo Power BI dashboard" },
   { id: "ml", short: "ML Lab", full: "ML-Projects repo" },
   { id: "ucsb", short: "UCSB", full: "UC Santa Barbara coursework" },
+  { id: "homelab", short: "Homelab", full: "Home server (Ubuntu Server + Docker)" },
 ] as const;
 
 type ColId = (typeof toolkitCols)[number]["id"];
@@ -421,6 +422,22 @@ export const toolkit: { tool: string; group: string; uses: Partial<Record<ColId,
     },
   },
   { tool: "Supabase", group: "Engineering", uses: { compass: "Database and backend for the advising platform." } },
+  {
+    tool: "Docker",
+    group: "Infra",
+    uses: {
+      homelab: "Every service runs as a container (Jellyfin, Nextcloud, Pi-hole, Home Assistant), managed in Portainer.",
+      ml: "Dockerfile and docker-compose for the recommender's API.",
+    },
+  },
+  {
+    tool: "Linux",
+    group: "Infra",
+    uses: {
+      homelab: "Headless Ubuntu Server on a repurposed laptop, run entirely over SSH. It also hosts my modded Minecraft server.",
+    },
+  },
+  { tool: "Tailscale", group: "Infra", uses: { homelab: "Private remote access to every service from anywhere over my own tailnet." } },
   { tool: "n8n · Apify", group: "AI", uses: { hc: "Workflows that discover and score creators." } },
   {
     tool: "Claude Code · LLMs",
