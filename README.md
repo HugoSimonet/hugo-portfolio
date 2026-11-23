@@ -37,25 +37,18 @@ Every figure on the site comes from the resume, the LinkedIn notes in `Job Searc
 
 ## Deploy to Vercel
 
-**Live at https://hugo-simonet.vercel.app.** The Vercel project is `hugo-simonet` (team `hugosimonets-projects`), and this folder is already linked to it (`.vercel/`).
+**Live at https://hugo-simonet.vercel.app.** The Vercel project `hugo-simonet` (team `hugosimonets-projects`) is connected to this GitHub repo.
 
-**Publish an update** from this folder:
-
-```bash
-npx vercel --prod   # build on Vercel and replace the live site
-npx vercel          # optional: a private preview URL first
-```
-
-`vercel.json` pins the framework to Next.js. Without it, a project created from the CLI defaults to "Other" and serves only `public/` (every page 404s). `.vercelignore` keeps `.env*`, `.next` and `node_modules` out of uploads.
-
-**Optional: auto-deploy on every push.** Put the folder on GitHub, then connect the repo under Project → Settings → Git:
+**Publish an update by pushing to `main`.** Vercel builds and replaces the live site in about 30 seconds:
 
 ```bash
-git init && git add -A && git commit -m "Portfolio site"
-gh repo create hugo-portfolio --public --source . --push
+git add -A && git commit -m "Describe the change"
+git push
 ```
 
-**Custom domain (optional):** add it under Project → Settings → Domains. Social-preview URLs use Vercel's production URL automatically. To pin a different one, set the `NEXT_PUBLIC_SITE_URL` environment variable (for example `https://hugosimonet.com`).
+Pushes to any other branch get their own preview URL, which is useful for checking a big change before it goes live.
+
+`vercel.json` pins the framework to Next.js. Without it, a project created from the CLI defaults to "Other" and serves only `public/` (every page 404s). `.vercelignore` keeps `.env*`, `.next` and `node_modules` out of CLI uploads. `npx vercel --prod` still works as a manual fallback.
 
 ## Structure
 
